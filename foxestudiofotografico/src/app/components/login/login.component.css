@@ -1,0 +1,13 @@
+html,
+        .container {
+            height: 100%;
+            color: #52575D;
+        }
+        html {
+            display: table;
+            margin: auto;
+        }
+        .formcont3 {
+            display: table-cell;
+            vertical-align: middle;
+        }

@@ -1,0 +1,54 @@
+ <div class="container">
+  <div class="formcont">
+    <!-- Form Section -->
+
+    <form name="form" #form="ngForm" (ngSubmit)="loguear()">
+      <div class="card-panel z-depth-5">
+
+        <!-- Form Logo Section  -->
+
+        <div class="row margin">
+          <div class="col s12 m12 l12 center">
+            <img src="../../../assets/img/logo.jpg"
+              alt="" class="responsive-img circle" style="width:100px;">
+            <p>ADMIN</p>
+          </div>
+        </div>
+
+        <!-- Form Username Input Section -->
+
+        <div class="col s12 m12 l12">
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" name="username" id="username" [(ngModel)] = "usuario"   > 
+            <label for="username">Usuario</label>
+          </div>
+        </div>
+
+        <!-- Form Password Input Section -->
+
+        <div class="col m12 l12">
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" name="password" id="password" [(ngModel)] = "password"  >
+            <label for="password">Contraseña</label>
+          </div>
+        </div>
+
+        <p>{{mensaje}}</p>
+        <!-- Form Button Section  -->
+
+        <div class="center">
+          <input type="submit" value="Login" name="login"
+            class="btn waves-effect waves-light"style="width:100%;
+            background-color: #52575D;">
+        </div>
+
+        <!-- Form "Register Now" And "Forgot Password" Link Section. -->
+
+
+        <br>
+      </div>
+    </form>
+  </div>
+</div>
