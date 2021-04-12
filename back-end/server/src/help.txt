@@ -1,0 +1,22 @@
+Pasos para crear un API:
+1. Tener los siguientes programas:
+ * Node.js
+ * MongoDB
+ * (optional) GIT
+ * (optional) Visual Studio Code
+
+2. Instalar  los siguientes paquetes en el proyecto:
+ * Express
+ * mongoose
+ * (optional) nodemon > para no estar reiniciando el server con cada cambio en el codigo
+ * (optional) morgan > para llevar traza de cada petición hecha al servidor
+
+3. Crear un server, el cual Requiere:
+    - Una conexion a Base de datos (database.js)
+    - El archivo principal que iniciará el api (index.js)
+    - Un app donde se crea el servidor (app.js), en este se define:
+        > El puerto por el que se puede acceder al API
+        > Las la ruta base de acceso, y sus subrutas, las cuales necesitan:
+            . Las rutas (routes/employees.routes.js), las cuales requieren:
+                * Los metodos que manipulan la información (controllers/employeee.controler.js), el cual requiere:
+                    ** Los modelos de datos (model/employee.js)

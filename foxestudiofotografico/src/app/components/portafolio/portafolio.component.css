@@ -1,0 +1,51 @@
+.carousel { 
+    min-height: 550px;
+    margin: 0 !important;
+    padding-bottom: 150 !important;
+}
+
+.carousel > a{
+    font-size: 30px;
+}
+.carousel .carousel-item {
+    height:60% !important; 
+    width:60% !important; 
+    margin-top:-100px  !important;
+}
+
+.carousel .carousel-item>img {
+    margin: 0 !important;
+    height:100% !important; 
+    width: 100%;
+}
+
+
+.card-reveal{
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.5) !important;
+  }
+  div.card-reveal span.card-title{
+    color: #ffffff !important;
+  }
+  .container>p{
+      margin-top: 50px ;
+      font-size: 20px;
+  }
+  .card-reveal{
+    padding: 0;
+  }
+  .card-reveal .container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .material-icons{
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      padding: 10px;
+      margin: 0;
+      font-style: normal !important;
+  }
+
+

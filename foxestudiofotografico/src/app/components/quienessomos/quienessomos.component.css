@@ -1,0 +1,67 @@
+
+  /* ************* */
+  .final{
+    width: 100%;
+   }
+   .parte-final{
+       width: 100%;
+       text-align: center;
+   }
+   .titulo-final{
+       color: white;
+       font-size: 30px;
+   }
+   .contenidof{
+       display: flex;
+       justify-content: center;
+   }
+   .opiniones{
+       height: 475px;
+       display: flex;
+       flex-direction: column;
+       padding: 10px;
+       padding-top: 5px;
+       border-radius: 20px;
+       border: 1px solid yellow;
+       margin-left: 30px;
+   }
+   h4{
+       color: white;
+       font-size: 25px;
+       padding: 0;
+       margin: 0;
+   }
+   .opinion{
+       background-color:whitesmoke;
+       border-radius: 20px;
+       width: 100%;
+       padding: 0;
+       margin: 2px;
+       margin-bottom: 5px;
+       
+   }
+      
+   .comentario, .autor{
+       color: black;
+       font-style: italic;
+       margin: 0;
+       padding: 8px;
+   }
+   .comentario{
+       text-align: left;
+   }
+   .autor{
+       text-align: right;
+       margin-bottom: 6px;
+   }
+   .boton{
+       margin-top: 10px;
+   }
+   .boton a{
+       text-align: center;
+       color: black;
+       background-color: rgb(241, 241, 111);
+       border-radius: 10px;
+       padding: 15px;
+       
+   }

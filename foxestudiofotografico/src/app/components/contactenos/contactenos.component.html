@@ -1,0 +1,188 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <form #registrarSolicitudForm="ngForm" (ngSubmit)="crear()">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">badge</i>
+                        <input required id="first_name" type="text"
+                            class="validate" name="first_name"
+                            #first_name="ngModel"
+                            [(ngModel)]="solicitud.firstName">
+                        <label for="first_name">Nombre</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">keyboard_arrow_right</i>
+                        <input required id="last_name" type="text"
+                            class="validate" name="last_name"
+                            #last_name="ngModel"
+                            [(ngModel)]="solicitud.lastName">
+                        <label for="last_name">Apellidos</label>
+                    </div>
+                </div>
+                <div class="row tooltip">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">event</i>
+                        <input id="birthdate" type="Date" class="datepicker
+                            validate" name="birthdate" #birthdate="ngModel"
+                            [(ngModel)]="solicitud.birthDate">
+                        <label for="birthdate">Fecha de Nacimiento</label>
+                        <span class="tiptext">Para hacerte promociones o
+                            felicitarte!</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">phone</i>
+                        <input required id="phone" type="number" value='' onFocus="value=''"
+                            class="validate" data-length="10" name="phone"
+                            #phone="ngModel" [(ngModel)]="solicitud.phone">
+                        <label for="phone">Teléfono</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <i class="material-icons prefix">email</i>
+                            <input required id="email_inline" type="email"
+                                class="validate" name="email_inline"
+                                #email_inline="ngModel"
+                                [(ngModel)]="solicitud.email">
+                            <label for="email_inline">Email</label>
+                            <span class="helper-text" data-error="Email
+                                incorrecto." data-success="right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                    <div class="input-field">
+                    <div class="switch">
+                        <label>
+                          Programar cita?
+                          <input id="check" type="checkbox" (change)="mostrarFormCita($event)">
+                          <span class="lever"></span>                        
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                </div>
+                <!-- Formulario de cita -->
+                <div *ngIf="showSchedule">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <select name="servicio" #servicio="ngModel" [(ngModel)]="cita.tipo"> 
+                                <option value="" disabled selected>Seleccione un servicio</option>
+                                <option value="montaje">Foto Montaje</option>
+                                <option value="estudio">Foto Estudio</option>
+                                <option value="exterior">Fotos en exterior</option>
+                                <option value="matrimonio">Evento de matrimonio</option>
+                                <option value="documentos">Foto para documentos</option>
+                            </select>
+                            <label for="schdate">Tipo de Servicio</label>
+                        </div>
+                    
+                        <div class="input-field col s3">
+                            <i class="material-icons prefix">event</i>
+                            <input id="schdate" type="Date" class="validate" [min]="this.today" name="fecha" #fecha="ngModel" [(ngModel)]="cita.fecha">
+                            <label for="schdate">Fecha de la cita</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <i class="material-icons prefix">schedule</i>
+                            <input id="schtime" type="time" [min]="this.hour" max="16:00" class="validate" step="3600" name="hora" #hora="ngModel" [(ngModel)]="cita.hour">
+                            <label for="schtime">Hora de la cita</label>
+                            <span class="helper-text" data-error="Horario: 8am - 4pm" data-success="dispoible"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">insert_comment</i>
+                        <textarea required id="icon_prefix2"
+                            class="materialize-textarea validate"
+                            data-length="120" name="icon_prefix2"
+                            #icon_prefix2="ngModel"
+                            [(ngModel)]="solicitud.message">
+                        </textarea>
+                        <label for="icon_prefix2"> Mensaje...</label>
+                        <span class="helper-text" data-error="Ingrese el mensaje
+                            por favor." data-success="right"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <p>
+                        <label>
+                            <input type="checkbox" />
+                            <span>Acepto terminos y condiciones | <a
+                                    class="modal-trigger" href="#modal1"> <i
+                                        class="material-icons">quiz</i></a></span>
+                        </label>
+                    </p>
+                </div>
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" type="submit"
+                        name="action">Guardar
+                        <i class="material-icons">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Condiciones</h4>
+        <p>
+            En cumplimiento a lo dispuesto en el Decreto 1377 de 2013 y demás
+            normas
+            concordantes, mediante las cuales se dictan disposiciones
+            generales para la protección de datos personales,
+            <b
+                style="background-color: white;"> FOX estudio fotográfico</b>
+            como tratante de los datos obtenidos, solicita de su
+            autorización para realizar el tratamiento de sus datos
+            personales, los cuales serán incorporados en nuestra base de
+            datos.
+            <br> <br> Los datos personales suministrados en desarrollo de La
+            Actividad serán confidenciales y no podrán ser revelados a terceros
+            ni utilizar la información para fines distintos de los autorizados
+            por el propio usuario. Los datos personales permanecerán en entornos
+            operativos seguros no disponibles al público.
+            <br> <br>
+            Para consultas, reclamos o ampliar información contáctenos a la
+            línea 314 438 3831
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-green btn-flat">Acepto</a>
+    </div>
+</div>
+
+<!-- Ventana modal Condiciones -->
+<!-- <div id="ventanaModal" class="fondo_transparente">
+    <div class="modal resize">
+        <div class="modal_cerrar">
+            <a href="#" title="Cerrar" class="close">X</a>
+        </div>
+        <div class="modal_titulo">Condiciones</div>
+        <div class="modal_mensaje">
+            <p>
+                En cumplimiento a lo dispuesto en el Decreto 1377 de 2013,
+                reglamentario de la Ley Estatutaria 1581 de 2012 y demás normas
+                concordantes, mediante las cuales se dictan disposiciones
+                generales para la protección de datos personales,
+                <b
+                    style="background-color: white;"> FOX estudio fotográfico</b>
+                como tratante de los datos obtenidos, solicita de su
+                autorización para realizar el tratamiento de sus datos
+                personales, los cuales serán incorporados en nuestra base de
+                datos.
+                <br> <br> Los datos personales obtenidos serán usados en forma
+                exclusiva para fines de contacto y estadística.
+            </p>
+        </div>
+    </div>
+</div> -->
