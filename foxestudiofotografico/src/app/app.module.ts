@@ -13,6 +13,7 @@ import { PortafolioComponent } from './components/portafolio/portafolio.componen
 import { ChatComponent } from './components/chat/chat.component';
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AdminComponent } from './components/admin/admin.component';
     PortafolioComponent,
     ChatComponent,
     QuienessomosComponent,
-    AdminComponent
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,routing,FormsModule,HttpClientModule

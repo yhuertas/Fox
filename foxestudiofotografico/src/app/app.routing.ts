@@ -6,6 +6,7 @@ import {ContactenosComponent} from '../app/components/contactenos/contactenos.co
 import {ChatComponent} from '../app/components/chat/chat.component';
 import {QuienessomosComponent} from '../app/components/quienessomos/quienessomos.component';
 import { AdminComponent } from '../app/components/admin/admin.component'
+import { LoginComponent} from '../app/components/login/login.component'
 
 const appRoutes: Routes =[
     {path:'',component:IndexComponent},
@@ -14,7 +15,9 @@ const appRoutes: Routes =[
     {path:'contactenos',component:ContactenosComponent},
     {path:'chat',component:ChatComponent},
     {path:'quienessomos',component:QuienessomosComponent},
-    {path:'admin',component:AdminComponent}
+    {path:'admin',component:AdminComponent},
+    {path:'login',component:LoginComponent}
+    
 
 
 ]

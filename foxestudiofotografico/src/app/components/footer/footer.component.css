@@ -1,4 +1,9 @@
+.page-footer{
+     background-color: #41444B;
+}
 .copy{
         font-size: 10px !important;
-      
+}
+hr{
+        color: #FDDB3A;
 }
