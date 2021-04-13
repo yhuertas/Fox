@@ -13,3 +13,18 @@
 hr{
         color: #41444B;
 }
+footer {
+        position: fixed;
+        height: 85px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+    }
+    img{
+        height: 50px;
+        background-color: #52575D;
+    }
+    .row{
+            margin: 0px !important;
+    }

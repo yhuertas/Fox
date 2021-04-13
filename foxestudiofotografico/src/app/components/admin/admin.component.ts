@@ -25,7 +25,7 @@ export class AdminComponent implements OnInit {
     public solicitudService: SolicitudesServicesService
 
   ) {
-    this.cita = new Cita('', null, null, "","")
+    this.cita = new Cita('', null, null, "")
     this.solicitud = new SolicitudModel("", "", 0, "", "")
   }
 

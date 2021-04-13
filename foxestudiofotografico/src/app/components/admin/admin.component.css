@@ -1,7 +1,11 @@
 nav{
     background-color: #FDDB3A;
+    color: #F6F4E6;
 
 }
 ul>li>a,ul>li>a>.material-icons{
     color: #41444B !important;
+}
+tbody{
+font-size: small ;
 }

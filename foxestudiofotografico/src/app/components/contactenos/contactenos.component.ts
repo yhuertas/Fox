@@ -22,7 +22,7 @@ export class ContactenosComponent implements OnInit {
 
   constructor(private solicitudService:SolicitudesServicesService,private citasService:CitasService) { 
     this.solicitud=new SolicitudModel("","",0,"","",);
-    this.cita=new Cita("",null,null,"","")
+    this.cita=new Cita("",null,null,"")
   }
 
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class ContactenosComponent implements OnInit {
            hournew.setMinutes(mm.get('minute')+hoursplit[1]);
            hournew.setHours(mm.get('hour')+hoursplit[0]);
            this.cita.hour=hournew
-           console.log(hournew)
+           console.log(this.cita)
             this.citasService.registrarCita(this.cita).subscribe(
               (res2:any)=>{
               alert("Cita guardada exitosamente");

@@ -9,7 +9,7 @@ import { Cita } from '../models/cita';
 export class CitasService {
 
   apiURL= 'http://localhost:3000/api/schedule/'
-  selectedCita:Cita={tipo:"",fecha:null,hour:null,requester:"",_id:""};
+  selectedCita:Cita={tipo:"",fecha:null,hour:null,requester:""};
   constructor(private _http: HttpClient) { }
 
 
