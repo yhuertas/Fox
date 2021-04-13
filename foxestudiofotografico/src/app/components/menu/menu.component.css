@@ -1,3 +1,15 @@
 img{
     height: 65px;
 }
+.material-icons{
+    margin-left: 5px !important; 
+}
+nav{
+    
+    margin-bottom: 1em;
+    background-color: #41444B;
+}
+
+ul>li>a,ul>li>a>.material-icons{
+    color: #FDDB3A !important;
+}

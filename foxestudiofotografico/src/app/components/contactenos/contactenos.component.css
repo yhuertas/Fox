@@ -1,46 +1,24 @@
-.tiptext {
-    visibility: hidden;
-    text-align: center;
-    position: absolute;
-    z-index: 1;
-text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) ;
-}
-.tooltip:hover .tiptext {
-    visibility: visible;
-}
-
-/* position */
-.tiptext{
-    margin-left: -60px;
-    top: 10px; 
-    right: 35%;
-}
-.tooltip.bottom .tiptext::after{
-    margin-top: -5px;
-    top: 100%;
-    left: 50%;
-}
-form, #modal1{
+form,#modal1{
 color:#52575D;
 }
-/* label focus color */
-    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-     color: #FDDB3A !important;
-    }
+form{
+    background-color: #F6F4E6 ;
+    border-radius: 5px;
+}
 
 /* label underline focus color */
-    .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    .input-field input:focus {
      border-bottom: 1px solid #FDDB3A !important;
      box-shadow: 0 1px 0 0 #FDDB3A !important;
     }
 
 
 .material-icons.active {
-  color: #F6F4E6 !important;
+  color: #FDDB3A !important;
   }
 
-  .input-field input[type=text] + label, .materialize-textarea:focus:not([readonly]) + label {
-    color: #F6F4E6 !important;
+  .input-field input + label{
+    color: #52575D !important;
    }
 
     /* label underline focus color */
@@ -48,3 +26,38 @@ color:#52575D;
         border-bottom: 1px solid #000;
         box-shadow: 0 1px 0 0 #000;
       }
+      .row {
+        padding: 5px !important;
+        margin-bottom: 5px;
+        margin: 0px;
+    }
+    .input-field{
+        margin: 5px 0px 0px 0px;
+        padding: 5px;
+        
+    }
+
+
+
+    .tiptext {
+        visibility: hidden;
+        text-align: center;
+        position: absolute;
+        z-index: 1;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) ;
+    }
+    .tooltip:hover .tiptext {
+        visibility: visible;
+    }
+    
+    /* position */
+    .tiptext{
+        margin-left: -60px;
+        top: 10px; 
+        right: 35%;
+    }
+    .tooltip.bottom .tiptext::after{
+        margin-top: -5px;
+        top: 100%;
+        left: 50%;
+    }

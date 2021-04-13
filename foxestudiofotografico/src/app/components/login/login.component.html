@@ -3,7 +3,7 @@
     <!-- Form Section -->
 
     <form name="form" #form="ngForm" >
-      <div class="card-panel z-depth-5">
+      <div class="card-panel">
 
         <!-- Form Logo Section  -->
 
@@ -20,7 +20,7 @@
         <div class="col s12 m12 l12">
           <div class="input-field">
             <i class="material-icons prefix">person</i>
-            <input type="text" name="username" id="username" [(ngModel)] = "usuario"   > 
+            <input class="validate" type="text" name="username" id="username" [(ngModel)] = "usuario"   > 
             <label for="username">Usuario</label>
           </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="col m12 l12">
           <div class="input-field">
             <i class="material-icons prefix">lock</i>
-            <input type="password" name="password" id="password" [(ngModel)] = "password"  >
+            <input class="validate" type="password" name="password" id="password" [(ngModel)] = "password"  >
             <label for="password">Contraseña</label>
           </div>
         </div>
@@ -40,7 +40,7 @@
 
         <div class="center">
           <input value="Login" name="login" (click)="loguear()"
-            class="btn waves-effect waves-light"style="width:100%;
+            class="btn waves-effect waves-light"style="width:30%;
             background-color: #52575D;">
         </div>
 

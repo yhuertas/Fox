@@ -1,5 +1,5 @@
 
-<div class="container">
+<!-- <div class="container"> -->
     <div class="row">
         <div class="col s12">
             <form name="form" #form="ngForm" (ngSubmit)="crear()">
@@ -21,7 +21,7 @@
                         <label for="last_name">Apellidos</label>
                     </div>
                 </div>
-                <div class="row tooltip">
+                <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">event</i>
                         <input id="birthdate" type="Date" class="datepicker
@@ -86,12 +86,12 @@
                         <div class="input-field col s3">
                             <i class="material-icons prefix">event</i>
                             <input id="schdate" type="Date" class="validate" [min]="this.today" name="fecha" #fecha="ngModel" [(ngModel)]="cita.fecha">
-                            <label for="schdate">Fecha de la cita</label>
+                            <label for="schdate">Fecha</label>
                         </div>
                         <div class="input-field col s3">
                             <i class="material-icons prefix">schedule</i>
                             <input id="schtime" type="time" [min]="this.hour" max="16:00" class="validate" step="3600" name="hora" #hora="ngModel" [(ngModel)]="cita.hour">
-                            <label for="schtime">Hora de la cita</label>
+                            <label for="schtime">Hora</label>
                             <span class="helper-text" data-error="Horario: 8am - 4pm" data-success="dispoible"></span>
                         </div>
                     </div>
@@ -122,15 +122,16 @@
                 </div>
                 <div class="row center">
                     <button class="btn waves-effect waves-light"
-                        name="action" style="width:100%;
+                        name="action" style="width:30%;
                         background-color: #52575D;">Guardar
                         <i class="material-icons">send</i>
                     </button>
                 </div>
+                <br>
             </form>
         </div>
     </div>
-</div>
+<!-- </div> -->
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal">

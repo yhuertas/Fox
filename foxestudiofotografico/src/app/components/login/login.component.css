@@ -2,6 +2,7 @@ html,
         .container {
             height: 100%;
             color: #52575D;
+            
         }
         html {
             display: table;
@@ -11,3 +12,25 @@ html,
             display: table-cell;
             vertical-align: middle;
         }
+        .card-panel{
+    background-color: #F6F4E6;
+}
+/* label underline focus color */
+.input-field input:focus {
+    border-bottom: 1px solid #FDDB3A !important;
+    box-shadow: 0 1px 0 0 #FDDB3A !important;
+   }
+
+
+.material-icons.active {
+ color: #FDDB3A !important;
+ }
+ .input-field input + label{
+    color: #52575D !important;
+   }
+
+    /* label underline focus color */
+    .input-field input[type=text]:focus {
+        border-bottom: 1px solid #000;
+        box-shadow: 0 1px 0 0 #000;
+      }

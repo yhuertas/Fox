@@ -1,9 +1,15 @@
 .page-footer{
-     background-color: #41444B;
+     background-color: #FDDB3A;
+     padding-top: 3px;
+     
+}
+.container, copy{
+        color: #52575D !important;
 }
 .copy{
         font-size: 10px !important;
+        min-height:5px
 }
 hr{
-        color: #FDDB3A;
+        color: #41444B;
 }
