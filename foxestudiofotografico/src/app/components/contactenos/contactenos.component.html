@@ -72,7 +72,7 @@
                 <div *ngIf="showSchedule">
                     <div class="row">
                         <div class="input-field col s6">
-                            <select name="servicio" #servicio="ngModel" [(ngModel)]="cita.tipo"> 
+                            <select id="tipo" name="servicio" #servicio="ngModel" [(ngModel)]="cita.tipo"> 
                                 <option value="" disabled selected>Seleccione un servicio</option>
                                 <option value="montaje">Foto Montaje</option>
                                 <option value="estudio">Foto Estudio</option>
@@ -80,7 +80,7 @@
                                 <option value="matrimonio">Evento de matrimonio</option>
                                 <option value="documentos">Foto para documentos</option>
                             </select>
-                            <label for="schdate">Tipo de Servicio</label>
+                            <label for="tipo">Tipo de Servicio</label>
                         </div>
                     
                         <div class="input-field col s3">

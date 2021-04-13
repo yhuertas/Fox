@@ -2,7 +2,7 @@
   <div class="formcont">
     <!-- Form Section -->
 
-    <form name="form" #form="ngForm" (ngSubmit)="loguear()">
+    <form name="form" #form="ngForm" >
       <div class="card-panel z-depth-5">
 
         <!-- Form Logo Section  -->
@@ -39,7 +39,7 @@
         <!-- Form Button Section  -->
 
         <div class="center">
-          <input type="submit" value="Login" name="login"
+          <input value="Login" name="login" (click)="loguear()"
             class="btn waves-effect waves-light"style="width:100%;
             background-color: #52575D;">
         </div>

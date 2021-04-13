@@ -3,6 +3,7 @@ export class Cita {
          public tipo: string,
          public fecha: Date,         
          public hour: Date,
-         public requester: string
+         public requester: string,
+         public _id:string
      ){}
 }

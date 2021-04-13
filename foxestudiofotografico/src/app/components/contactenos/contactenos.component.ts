@@ -22,7 +22,7 @@ export class ContactenosComponent implements OnInit {
 
   constructor(private solicitudService:SolicitudesServicesService,private citasService:CitasService) { 
     this.solicitud=new SolicitudModel("","",0,"","",);
-    this.cita=new Cita("",null,null,"")
+    this.cita=new Cita("",null,null,"","")
   }
 
   ngOnInit(): void {

@@ -23,7 +23,7 @@ export class SolicitudesServicesService {
   }
 
     //listar todas las solicitudes
-    mostrarSolicitud():Observable<any>{
+    mostrarTodasSolicitudes():Observable<any>{
       let options = { headers:new HttpHeaders().set('Content-type','application/json')
     }
       return this._http.get(this.apiURL, options).pipe((res)=>res)

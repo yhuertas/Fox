@@ -3,9 +3,27 @@ const Schedule = require('../models/Schedule');
 
     //Get all schedules
     scheduleController.getAllSchedules= async(req, res) => {
-        const schedules = await Schedule.find()
+        const schedules = await Schedule.aggregate([                
+                {"$project": {
+                      "_id": 1,
+                      "tipo":1,
+                      "fecha": {
+                         "$dateToString": {
+                            "format": "%Y-%m-%d",
+                            "date": "$fecha"
+                         }
+                      },
+                      "hour": {
+                        "$dateToString": {
+                           "format": "%H:%M",
+                           "date": "$hour"
+                        }
+                     },"requester":1
+                   }
+                }
+             ])
         res.json(schedules)
-        console.log("All Offices retrieved")
+        console.log("All schedule retrieved")
     }
 
     //Add a new Schedule
@@ -25,6 +43,7 @@ const Schedule = require('../models/Schedule');
 
     //Update (edit) a Schedule
     scheduleController.editSchedule = async(req, res) => {
+        console.log(req.params)
     await Schedule.findByIdAndUpdate(req.params.id, req.body); 
     res.json({ status: "Schedule updated" })
     }

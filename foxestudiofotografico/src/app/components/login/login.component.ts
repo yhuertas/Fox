@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { routing } from 'src/app/app.routing';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,21 +11,27 @@ export class LoginComponent implements OnInit {
   public mensaje:string="";
   public usuario="";
   public password=""
-  public _routing = routing;
-  constructor() { }
+  public validador:Boolean=false
+  constructor(
+    public _routing:Router) { }
 
   ngOnInit(): void {
   }
 //temaplatereferencevariable
   loguear(){
+    console.log('usuario: ' + this.usuario + " password:" + this.password)
     if (this.usu==this.usuario && this.cont==this.password) {
       //[routerLink]="['/admin']" redireccionar a admin
-      console.log('usuario: ' + this.usuario + " password:" + this.password)
-      //this._routing= this._routing.navigate(['admin']);
+      //this.cambiarValor(true);
+      //this.validador=true;
+      this._routing.navigate(['admin']);
       
     } else {
       this.mensaje="Usuario o contraseña incorrectos"
       
     }
   }
+  //cambiarValor(valor:Boolean){
+  //  this.validador = valor;
+  //}
 }
