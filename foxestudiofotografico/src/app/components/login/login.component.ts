@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import M from 'materialize-css';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -34,4 +37,16 @@ export class LoginComponent implements OnInit {
   //cambiarValor(valor:Boolean){
   //  this.validador = valor;
   //}
+
+
+  ngAfterViewInit() {
+
+    setTimeout(() => {
+
+        
+  M.updateTextFields();
+
+    }, 100);
+  }
+
 }

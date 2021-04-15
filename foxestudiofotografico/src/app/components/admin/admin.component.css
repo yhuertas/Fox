@@ -1,11 +1,49 @@
 nav{
-    background-color: #FDDB3A;
     color: #F6F4E6;
+    height: auto;
 
 }
 ul>li>a,ul>li>a>.material-icons{
     color: #41444B !important;
 }
+ul>li>a>.material-icons:hover{
+    color: #FDDB3A !important;
+}
 tbody{
 font-size: small ;
+background-color: #F6F4E6;
+color: #41444B;
+}
+
+
+#admin-side-menu {
+    background-color: #F6F4E6;
+    position: fixed;
+    width: 200px;
+    left: 0;
+    top: 6em;
+    transition: all 0.3s ease-in-out;
+    /* box-shadow: 0 2px 10px rgba(10, 10, 10, 0.1); */
+    
+   /*  overflow-y: auto; */
+}
+.sideMenu>ul>li{
+    width:200px ;
+}
+
+#del,#edit{
+    color: #FDDB3A; background-color: transparent;
+    cursor: pointer;
+}
+.modal{
+    background-color: #F6F4E6
+}
+.modal-footer>a,thead{
+    background-color: #41444B;
+    color: #FDDB3A !important;
+}
+.modal-footer{
+    background-color: #52575D
+    ;
+   
 }

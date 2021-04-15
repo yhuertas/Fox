@@ -5,6 +5,7 @@ import { SolicitudesServicesService} from '../../services/solicitudes-services.s
 import { Cita} from '../../models/cita'
 import { CitasService } from '../../services/citas.service'
 import * as moment from 'moment';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contactenos',
@@ -14,6 +15,8 @@ import * as moment from 'moment';
 export class ContactenosComponent implements OnInit {
   public solicitud:SolicitudModel;
   public cita:Cita;
+  public acepto:boolean=false;
+  public aceptoModal:boolean=false;
   //dpkrOptions = {    format:"dd-mm-yyyy",    defaultDate:new Date(2000, 0, 1),    autoClose:true,     closeAfterSelect: true,    setDefaultDate: true,  selectYears: 15}
   public showSchedule:boolean=false;
   private date:Date=new Date();
@@ -39,8 +42,13 @@ export class ContactenosComponent implements OnInit {
     console.log(this.today + ' '+this.hour)
   }
 
-  crear(){
+  crear(f:NgForm){
     //Guardar solicitud
+      console.log(f.form.value) //valor del formulario
+      console.log(this.acepto)
+    if (this.acepto) {
+      
+    
     this.solicitudService.registrarSolicitud(this.solicitud).subscribe(
       (res:any)=>{
           alert(" Solicitud guardada exitosamente");
@@ -79,7 +87,8 @@ export class ContactenosComponent implements OnInit {
         }
       }
     )
-    
+  } else
+  {alert("aceta los terminos")}
   }
 
 
@@ -98,6 +107,10 @@ export class ContactenosComponent implements OnInit {
         var instances = M.FormSelect.init(select, {});
 
     }, 100);
+  }
+
+  aceptar(){
+    this.acepto=true
   }
 
 }

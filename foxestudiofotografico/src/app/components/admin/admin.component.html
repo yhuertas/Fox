@@ -1,20 +1,3 @@
-
-<hr>
-<nav>
-    <div class="nav-wrapper">
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a (click)="consultarCitas()"><i class="material-icons right">list</i>Ver
-                las citas</a></li>
-            <li><a (click)="consultarSolicitudes()"><i class="material-icons
-                        right">email</i> | Ver Solicitudes</a></li>
-            <li><a (click)="ocultarCitas()"><i class="material-icons right">hide_source</i> | Limpiar
-                    todo</a></li>
-            <li><a (click)="salir()"><i class="material-icons right">directions_run</i> | Salir</a></li>
-        </ul>
-    </div>
-</nav>
-
-
 <h4>Citas</h4>
 <!-- Tabla Citas-->
 <div class="row">
@@ -22,30 +5,27 @@
         <table class="highlight responsive-table z-depth-3">
             <thead class="z-depth-5">
                 <tr>
+                    <th class="text-center" scope="col"></th>
                     <th class="text-center" scope="col">Servicio</th>
-                     <th class="text-center" scope="col">Fecha </th> 
+                    <th class="text-center" scope="col">Fecha </th>
                     <th class="text-center" scope="col">Hora</th>
                     <th class="text-center" scope="col">Solicitante</th>
-                    <th class="text-center" scope="col">editar</th>
-                    <th class="text-center" scope="col">Eliminar</th>
+                    <th class="text-center" scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let cita of listaCitas">
+                    <td lass="text-right"> 
+                        <a id="edit" class="modal-trigger" href="#modal1" (click)="editCita(cita)">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </td>
                     <td class="text-center tamanofuente">{{cita.tipo}}</td>
-                    <td class="text-center tamanofuente">{{cita.fecha}}</td> 
+                    <td class="text-center tamanofuente">{{cita.fecha}}</td>
                     <td class="text-center tamanofuente">{{cita.hour}}</td>
-                    <td class="text-center tamanofuente">{{cita.request}}</td>
-                    <td lass="text-right"> <a
-                        class="modal-trigger" href="#modal1" (click)="editCita(cita)"> <i
-                            class="material-icons">edit</i></a>
-                        <!-- <button class="btn
-                            btn-success"  href="#modal1" (click)="editCita(cita)">
-                            <i class="material-icons">edit</i></button> -->
-                        </td>
-                    <td lass="text-left"><button class="btn btn-danger"
-                            (click)="eliminarCita(cita._id)"><i
-                                class="material-icons">delete</i></button></td>
+                    <td class="text-center tamanofuente">{{cita.request}}</td>                    
+                    <td lass="text-left"><a id="del" (click)="eliminarCita(cita._id)"><i
+                                class="material-icons">delete</i></a></td>
                 </tr>
             </tbody>
         </table>
@@ -56,68 +36,79 @@
 
 <!-- Lsita solicitudes -->
 <h4>Solictudes</h4>
-    <div class="row">
-        <div class="col-12">
-            <table class="highlight responsive-table  z-depth-3">
-                <thead class=" z-depth-5">
-                    <tr>
-                        <th class="text-center" scope="col">Nombre</th>
-                        <th class="text-center" scope="col">F. Nacimiento</th>
-                        <th class="text-center" scope="col">Telefono</th>
-                        <th class="text-center" scope="col">E-mail</th>
-                        <th class="text-center" scope="col">Mensaje</th>
-                        <!-- <th class="text-center" colspan="2" scope="col">Acción</th> -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let sol of listaSolicitudes">
-                        <td class="text-center tamanofuente">{{sol.firstName}}
-                            {{sol.lasttName}}</td>
-                        <td class="text-center tamanofuente">{{sol.birthDate}}</td>
-                        <td class="text-center tamanofuente">{{sol.phone}}</td>
-                        <td class="text-center tamanofuente">{{sol.email}}</td>
-                        <td class="text-center tamanofuente">{{sol.message}}</td>
-                        <!-- <td lass="text-right"><button class="btn
-                                btn-success" (click)="editSolicitud(sol)">
-                                <i class="material-icons">edit</i></button></td>
-                        <td lass="text-left"><button class="btn btn-danger"
-                                (click)="eliminarSolicitud(sol._id)"><i
-                                    class="material-icons">delete</i></button></td> -->
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="row">
+    <div class="col-12">
+        <table class="highlight responsive-table z-depth-3">
+            <thead class="z-depth-1">
+                <tr>
+                    <th class="text-center" scope="col">Nombre</th>
+                    <th class="text-center" scope="col">F. Nacimiento</th>
+                    <th class="text-center" scope="col">Telefono</th>
+                    <th class="text-center" scope="col">E-mail</th>
+                    <th class="text-center" scope="col">Mensaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sol of listaSolicitudes">
+                    <td class="text-center tamanofuente">{{sol.firstName}}
+                        {{sol.lasttName}}</td>
+                    <td class="text-center tamanofuente">{{sol.birthDate}}</td>
+                    <td class="text-center tamanofuente">{{sol.phone}}</td>
+                    <td class="text-center tamanofuente">{{sol.email}}</td>
+                    <td class="text-center tamanofuente">{{sol.message}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 
 
-    <!-- Modal de edición de Citas -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Editando la cita</h4>
-            <form id="frm" name="frm" #frm ="ngForm" (ngSubmit)="updateCita(frm)" >
-                <div class="form-group">
-                <imput id="_id" type="hidden" name="_id" ngDefaultControl #_id="ngModel" [(ngModel)]="citasService.selectedCita._id"></imput>
-                <select id="tipo" #hour="ngModel" name="tipo" form="frm" class="form-group" [(ngModel)]="citasService.selectedCita.tipo">
+<!-- Modal de edición de Citas -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Editando la cita</h4>
+        <form id="frm" name="frm" #frm="ngForm" (ngSubmit)="updateCita(frm)">
+            <div class="form-group">
+                <imput id="_id" type="hidden" name="_id" ngDefaultControl
+                    #_id="ngModel" [(ngModel)]="citasService.selectedCita._id"></imput>
+                <select id="tipo" #hour="ngModel" name="tipo" form="frm"
+                    class="form-group"
+                    [(ngModel)]="citasService.selectedCita.tipo">
                     <option *ngFor="let option of options; index as i"
-                        [selected]="option===citasService.selectedCita.tipo"
-                    >{{ option }}</option>
+                        [selected]="option===citasService.selectedCita.tipo">{{
+                        option }}</option>
                 </select>
-                </div>
-                <div class="form-group">
-                    <input type="date" class="form-control" id="fecha"
-                        name="fecha" #fecha="ngModel"
-                        [(ngModel)]="citasService.selectedCita.fecha" >
-                </div>
-                <div class="form-group">
-                    <input type="time" class="form-control"
-                        id="hour" placeholder="Hora"
-                        name="hour" #hour="ngModel"
-                        [(ngModel)]="citasService.selectedCita.hour"> 
-                </div>%G
-                <button type="submit" class="modal-close btn btn-primary mr-2" >Guardar</button>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <a class="modal-close waves-effect waves-green btn-flat" (click)="cleanForm(frm)">cerrar</a>
-        </div>
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" id="fecha"
+                    name="fecha" #fecha="ngModel"
+                    [(ngModel)]="citasService.selectedCita.fecha">
+            </div>
+            <div class="form-group">
+                <input type="time" class="form-control"
+                    id="hour" placeholder="Hora"
+                    name="hour" #hour="ngModel"
+                    [(ngModel)]="citasService.selectedCita.hour">
+            </div>%G
+            <button type="submit" class="modal-close btn btn-primary mr-2">Guardar</button>
+        </form>
     </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-green btn-flat"
+            (click)="cleanForm(frm)">cerrar</a>
+    </div>
+</div>
+
+
+<aside id="admin-side-menu"class="menu">
+    <nav>
+        <div class="sideMenu">
+            <ul class="">
+                <li><a (click)="consultarCitas()"><i class="material-icons left" >event</i>Ver las citas</a></li>
+                <li><a (click)="consultarSolicitudes()"><i class="material-icons left">email</i>Ver Solicitudes</a></li>
+                <li><a (click)="ocultarCitas()"><i class="material-icons left">hide_source</i>Limpiar todo</a></li>
+                <li><a (click)="salir()"><i class="material-icons left">directions_run</i>Salir</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>

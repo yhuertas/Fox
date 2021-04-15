@@ -1,3 +1,4 @@
+
 img{
     height: 65px;
 }
@@ -20,4 +21,5 @@ nav {
     left: 0px;
     right: 0px;
     margin-top: 0px;
+    z-index: 100;
 }
