@@ -8,7 +8,8 @@ const customerSchema = new Schema({
     birthDate: { type: Date },
     phone: { type: Number, required: true },
     email: { type: String, required: true },
-    message: { type: String, required: true }
+    message: { type: String, required: true },
+    isShown: {type:Boolean}
 }, {
     timestamps: true,
     versionKey: false

@@ -4,6 +4,7 @@ const scheduleController = require("../controllers/schedule.controller");
 
 //prefix route: /api/offices/
 router.get("/", scheduleController.getAllSchedules); //GET: Obtener o recuperar todos los documentos
+router.get("/vencidas/", scheduleController.getAllPastSchedules); //GET: Obtener o recuperar todos los documentos
 router.post("/", scheduleController.createSchedule); //POST: Enviar Datos (para ser guardados)
 router.get("/:id", scheduleController.getSchedule); //Pasando un ID como parámetro al enviar una petición de consulta para un solo documento
 router.put("/:id", scheduleController.editSchedule); //PUT: Actualizar Datos de un documento

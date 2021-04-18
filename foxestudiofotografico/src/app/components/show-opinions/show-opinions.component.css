@@ -1,0 +1,52 @@
+.cont{
+    width: 475px;
+    height: 475px;
+    border-radius: 20px;
+    border: 1px solid #41444B;
+}
+.opiniones{
+    
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 5px;
+    margin-left: 30px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.opinion{
+    background-color:#52575D;       ;
+    border-radius: 20px;
+    color: #F6F4E6;
+    width: 100%;
+    padding: 0;
+    margin: 2px;
+    margin-bottom: 5px;
+    
+    
+}
+   
+.comentario, .autor{
+    font-style: italic;
+    margin: 0;
+    padding: 8px;
+}
+.comentario{
+    text-align: left;
+}
+.autor{
+    text-align: right;
+    margin-bottom: 6px;
+}
+.boton{
+    margin-top: 10px;
+}
+.boton a{
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    color: #41444B;
+    
+}

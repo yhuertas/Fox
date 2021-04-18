@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 body{
-    background-color: #52575D;
-    color:#F6F4E6;
+    background-color: #F6F4E6;
+    color: #41444B;;
     font-family: 'Comfortaa';
     margin-bottom:100px !important;
 }

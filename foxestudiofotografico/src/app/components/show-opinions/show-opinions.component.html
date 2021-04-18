@@ -1,0 +1,13 @@
+<div class="cont">
+    <h4>Opiniones</h4>
+    <div class="opiniones">
+        <!-- opiniones -->
+        <div *ngFor="let pub of listaPublicaciones" class="opinion">
+            <p class="comentario">{{pub.message}}</p>
+            <p class="autor"> - {{pub.firstName}} {{pub.lasttName}}</p>
+        </div>
+    </div>
+    <div class="boton">
+        <a [routerLink]="['/contactenos']"> <i class="material-icons">perm_phone_msg</i>Danos tu opinion</a>
+    </div>
+</div>

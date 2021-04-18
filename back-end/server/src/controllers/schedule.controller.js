@@ -3,7 +3,9 @@ const Schedule = require('../models/Schedule');
 
     //Get all schedules
     scheduleController.getAllSchedules= async(req, res) => {
-        const schedules = await Schedule.aggregate([                
+        var today=new Date();
+        const schedules = await Schedule.aggregate([ //filtrando las vigentes
+            {$match:{ "fecha":{$gt: today}, }},             
                 {"$project": {
                       "_id": 1,
                       "tipo":1,
@@ -18,10 +20,37 @@ const Schedule = require('../models/Schedule');
                            "format": "%H:%M",
                            "date": "$hour"
                         }
-                     },"requester":1
+                     },
+                     "requester":1
                    }
                 }
-             ])
+             ]).sort( { "fecha": 1 } )
+        res.json(schedules)
+        console.log("All schedule retrieved")
+    }
+    scheduleController.getAllPastSchedules= async(req, res) => {
+        var today=new Date();
+        const schedules = await Schedule.aggregate([ //filtrando las vigentes
+            {$match:{ "fecha":{$lt: today}, }},             
+                {"$project": {
+                      "_id": 1,
+                      "tipo":1,
+                      "fecha": {
+                         "$dateToString": {
+                            "format": "%Y-%m-%d",
+                            "date": "$fecha"
+                         }
+                      },
+                      "hour": {
+                        "$dateToString": {
+                           "format": "%H:%M",
+                           "date": "$hour"
+                        }
+                     },
+                     "requester":1
+                   }
+                }
+             ]).sort( { "fecha": 1 } )
         res.json(schedules)
         console.log("All schedule retrieved")
     }

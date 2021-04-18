@@ -1,5 +1,4 @@
 nav{
-    color: #F6F4E6;
     height: auto;
 
 }
@@ -11,39 +10,75 @@ ul>li>a>.material-icons:hover{
 }
 tbody{
 font-size: small ;
-background-color: #F6F4E6;
 color: #41444B;
 }
 
 
 #admin-side-menu {
-    background-color: #F6F4E6;
     position: fixed;
     width: 200px;
     left: 0;
-    top: 6em;
+    top: 8em;
     transition: all 0.3s ease-in-out;
-    /* box-shadow: 0 2px 10px rgba(10, 10, 10, 0.1); */
+     box-shadow: 0 2px 10px rgba(10, 10, 10, 0.2); 
     
    /*  overflow-y: auto; */
 }
 .sideMenu>ul>li{
     width:200px ;
+
 }
 
-#del,#edit{
-    color: #FDDB3A; background-color: transparent;
+#edit{
+    color: green; 
+}
+#starActive{
+    color: #FDDB3A;
+}
+
+#del{
+    color: crimson; 
+    background-color: transparent;
     cursor: pointer;
 }
 .modal{
-    background-color: #F6F4E6
+    background-color: #F6F4E6;
+    color: #41444B;
 }
-.modal-footer>a,thead{
+.modal-footer>a{
     background-color: #41444B;
     color: #FDDB3A !important;
 }
 .modal-footer{
-    background-color: #52575D
-    ;
-   
+    background-color: #52575D  
 }
+thead{
+    background-color: #52575D;
+    color: #F6F4E6;
+}
+
+.tabs{
+    background-color: #F6F4E6;
+}
+#conActivos,#colInactivos{
+    padding: 15px;
+}
+.tabs .tab a{
+    color:#41444B;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color:#41444B;
+    color:#F6F4E6 !important;
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+    background-color:#52575D;
+    color:#F6F4E6 !important;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color:#FDDB3A !important;
+
+} /*Color of underline*/
+

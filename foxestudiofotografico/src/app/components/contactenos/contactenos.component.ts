@@ -24,7 +24,7 @@ export class ContactenosComponent implements OnInit {
   public hour:string;
 
   constructor(private solicitudService:SolicitudesServicesService,private citasService:CitasService) { 
-    this.solicitud=new SolicitudModel("","",0,"","",);
+    this.solicitud=new SolicitudModel("","",0,"","",null,false);
     this.cita=new Cita("",null,null,"")
   }
 
@@ -47,45 +47,44 @@ export class ContactenosComponent implements OnInit {
       console.log(f.form.value) //valor del formulario
       console.log(this.acepto)
     if (this.acepto) {
-      
-    
-    this.solicitudService.registrarSolicitud(this.solicitud).subscribe(
-      (res:any)=>{
-          alert(" Solicitud guardada exitosamente");
-          console.log(res)
-          console.log(this.cita.fecha)
-          if (this.showSchedule) {//Guardar solicitud con cita.
-            this.cita.requester=res.id;
-            var hoursplit :any= this.cita.hour.toString().split(':');
-            let hournew= new Date(moment(this.cita.fecha, 'YYYY-MM-DD').toDate());
-            
-            let mm =  moment(hournew)
-           hournew.setMinutes(mm.get('minute')+hoursplit[1]);
-           hournew.setHours(mm.get('hour')+hoursplit[0]);
-           this.cita.hour=hournew
-           console.log(this.cita)
-            this.citasService.registrarCita(this.cita).subscribe(
-              (res2:any)=>{
-              alert("Cita guardada exitosamente");
-              console.log(res2)
+      this.solicitud.isShown=false;
+      this.solicitudService.registrarSolicitud(this.solicitud).subscribe(
+        (res:any)=>{
+            alert(" Solicitud guardada exitosamente");
+            console.log(res)
+            console.log(this.cita.fecha)
+            if (this.showSchedule) {//Guardar solicitud con cita.
+              this.cita.requester=res.id;
+              var hoursplit :any= this.cita.hour.toString().split(':');
+              let hournew= new Date(moment(this.cita.fecha, 'YYYY-MM-DD').toDate());
+              
+              let mm =  moment(hournew)
+            hournew.setMinutes(mm.get('minute')+hoursplit[1]);
+            hournew.setHours(mm.get('hour')+hoursplit[0]);
+            this.cita.hour=hournew
+            console.log(this.cita)
+              this.citasService.registrarCita(this.cita).subscribe(
+                (res2:any)=>{
+                alert("Cita guardada exitosamente");
+                console.log(res2)
 
-            },
-            (error)=>{
-              var messageError = <any>error;
-              if(messageError != null){
-                console.log(error)
+              },
+              (error)=>{
+                var messageError = <any>error;
+                if(messageError != null){
+                  console.log(error)
+                }
               }
-            }
-          )
-          }  
+            )
+            }  
 
-      },
-      (error)=>{
-        var messageError = <any>error;
-        if(messageError != null){
-          console.log(error)
+        },
+        (error)=>{
+          var messageError = <any>error;
+          if(messageError != null){
+            console.log(error)
+          }
         }
-      }
     )
   } else
   {alert("aceta los terminos")}

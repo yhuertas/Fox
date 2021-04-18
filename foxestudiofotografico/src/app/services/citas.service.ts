@@ -21,11 +21,18 @@ export class CitasService {
     return this._http.post(this.apiURL, params, {headers:options}).pipe((res)=>res)
   }
 
-    //listar todas las citas
+    //listar todas las citas Activas
     mostrarTodasCita():Observable<any>{
       let options = { headers:new HttpHeaders().set('Content-type','application/json')
     }
       return this._http.get(this.apiURL, options).pipe((res)=>res)
+    }
+
+    //listar todas las citas Anteriores
+    mostrarTodasCitaAnt():Observable<any>{
+      let options = { headers:new HttpHeaders().set('Content-type','application/json')
+    }
+      return this._http.get(this.apiURL+"vencidas/", options).pipe((res)=>res)
     }
     //Modificar una cita 
     modificarCita(id:string,citaToUp:Cita):Observable<any>{

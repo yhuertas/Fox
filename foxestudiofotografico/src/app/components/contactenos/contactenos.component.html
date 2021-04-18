@@ -1,8 +1,8 @@
 
 <!-- <div class="container"> -->
     <div class="row">
-        <div class="col s12">
-            <form name="form" #form="ngForm" >
+        <div class="col s12  ">
+            <form class="z-depth-2" name="form" #form="ngForm" >
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">badge</i>
@@ -38,7 +38,7 @@
                             #phone="ngModel" [(ngModel)]="solicitud.phone" >
                         <label for="phone">Teléfono</label>
                         <span class="helper-text" data-error="Ingrese el teléfono, máximo 10 numeros."
-                        data-success="right"></span>
+                        ></span>
                     </div>
                 </div>
                 <div class="row">
@@ -51,7 +51,7 @@
                             [(ngModel)]="solicitud.email">
                         <label for="email_inline">Email</label>
                         <span class="helper-text" data-error="Email
-                            incorrecto." data-success="right"></span>
+                            incorrecto." ></span>
                     </div>
                     <div class="input-field col s6">
 
@@ -119,9 +119,8 @@
                 </div>
                 <div class="row center">
                     <button type="submit" [disabled]="form.invalid"  id="boton" (click)="crear(form)"
-                        name="action" style="width:30%;
-                        background-color: #52575D;">Guardar
-                        <i class="material-icons">send</i>
+                        name="action" >Guardar
+                       <!--  <i class="material-icons">send</i> -->
                     </button>
                 </div>
                 <br>

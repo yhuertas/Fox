@@ -8,10 +8,6 @@ html,
             display: table;
             margin: auto;
         }
-        .formcont3 {
-            display: table-cell;
-            vertical-align: middle;
-        }
         .card-panel{
     background-color: #F6F4E6;
 }
@@ -34,3 +30,11 @@ html,
         border-bottom: 1px solid #000;
         box-shadow: 0 1px 0 0 #000;
       }
+
+      #boton{
+        width:20%;
+        color: #FDDB3A !important;
+        cursor: pointer;
+        background-color: #41444B;
+    }
+    

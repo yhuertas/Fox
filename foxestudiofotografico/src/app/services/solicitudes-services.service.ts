@@ -42,5 +42,11 @@ export class SolicitudesServicesService {
     }
       return this._http.delete(this.apiURL+id,options).pipe((res)=>res)
     }
-
+    
+    //listar todas las solicitudes
+    consularPublicaciones():Observable<any>{
+      let options = { headers:new HttpHeaders().set('Content-type','application/json')
+    }
+      return this._http.get(this.apiURL+"publish/", options).pipe((res)=>res)
+    }
 }

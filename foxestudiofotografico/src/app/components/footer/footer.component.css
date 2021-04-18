@@ -29,3 +29,9 @@ footer {
     .row{
             margin: 0px !important;
     }
+    footer ul li a{
+        
+                color: #52575D;
+                background-color: transparent !important; 
+            
+    }

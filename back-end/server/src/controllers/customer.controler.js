@@ -12,10 +12,48 @@ Existen tres formas de esperar respuestas a peticiones de forma asíncrona para 
 
 //Get all Customers
 ecustomerController.getAllCustomer = async(req, res) => {
-        const customers = await Customer.find() //Trae todos los objetos de la coleccion Customer
+        const customers = await Customer.aggregate([    //.find() //Trae todos los objetos de la coleccion Customer             
+            {"$project": {
+                  "_id": 1,
+                  "firstName":1,
+                  "lastName":1,
+                  "birthDate": {
+                     "$dateToString": {
+                        "format": "%Y-%m-%d",
+                        "date": "$birthDate"
+                     }
+                  },
+                 "phone":1,
+                 "email":1,
+                 "message":1,
+                 "createdAt":1,
+                 "isShown":1
+               }
+            }
+         ]).sort( { "createdAt": -1 } )
         res.json(customers)
         console.log("All ciustomer retrieved")
     }
+
+
+//Search pubilsh messages
+ecustomerController.getPublishMsg= async(req, res) => {
+    const customers = await Customer.aggregate([ 
+        {$match :{"isShown":true}},
+        {"$project": {
+              "_id": 1,
+              "firstName":1,
+              "lastName":1,
+             "message":1,
+             "createdAt":1,
+             "isShown":1
+           }
+        }
+     ]).sort( { "createdAt": -1 } )
+    res.json(customers)
+    console.log("All ciustomer retrieved")
+}
+
 //Add a new customer
 ecustomerController.createCustomer= async(req, res) => {
         const newCustomer = new Customer(req.body) //Crea un objeto del tipo Customer basado en el json que se recibe

@@ -17,6 +17,7 @@ import * as moment from 'moment';
 })
 export class AdminComponent implements OnInit {
   public listaCitas = [];
+  public listaCitasAnteriores = [];
   public cita: Cita
   public listaSolicitudes = [];
   public options = ["montaje","estudio","exterior","matrimonio","documentos"]
@@ -26,17 +27,12 @@ export class AdminComponent implements OnInit {
 
   ) {
     this.cita = new Cita('', null, null, "")
-    this.solicitud = new SolicitudModel("", "", 0, "", "")
+    this.solicitud = new SolicitudModel("", "", 0, "", "",null,false)/* * */
   }
 
   ngOnInit(): void {
     //this.autenticado()
   }
-  /*   autenticado(){
-      if (!this.login.validador) {
-        this._routing.navigate(['']);
-      }
-    } */
   salir() {
     // this.login.cambiarValor(false);
     this._routing.navigate(['']);
@@ -53,6 +49,21 @@ export class AdminComponent implements OnInit {
         var mensaje = error;
         if (mensaje !== null) {
           console.log("Error consultando las citas. " + mensaje)
+        }
+      })
+  }
+
+  consultarCitasAnt() {
+    this.citasService.mostrarTodasCitaAnt().subscribe((res) => {
+      //if (res.statusCode == 200){
+      console.log(res)
+      console.log('Citas anteriores recuperadas')
+      this.listaCitasAnteriores = res;
+    },
+      (error) => {
+        var mensaje = error;
+        if (mensaje !== null) {
+          console.log("Error consultando las citas anteriores. " + mensaje)
         }
       })
   }
@@ -86,37 +97,51 @@ export class AdminComponent implements OnInit {
            hournew.setHours(mm.get('hour')+hoursplit[0]);
            formulario.value.hour=hournew
     this.citasService.modificarCita(formulario.value._id,formulario.value).subscribe((res) => {
-      console.log("Empleado actualizado exitosamente" + res)
+      console.log("Cita actualizada exitosamente" + res)
       this.cleanForm(formulario)
     },
       (error) => {
-        console.log( "Error al actualizar el usuairo. " + error)
+        console.log( "Error al actualizar la cita. " + error)
       })
       return;
   }
 
   ocultarCitas() {
     this.listaCitas = null;
-    this.listaSolicitudes=null
+    this.listaSolicitudes=null;
+    this.listaCitasAnteriores=null;
   }
 
   consultarSolicitudes() {
     this.solicitudService.mostrarTodasSolicitudes().subscribe((res) => {
       console.log(res)
-      console.log('Citas recuperadas')
+      console.log('Solicitudes recuperadas')
       this.listaSolicitudes = res;
     },
       (error) => {
         var mensaje = error;
         if (mensaje !== null) {
-          console.log("Error consultando las citas. " + mensaje)
+          console.log("Error consultando las solicitudes. " + mensaje)
         }
       })
   }
 
 
 
-
+ publish(sol:SolicitudModel){{
+   console.log(sol)
+    if(sol.isShown){
+      sol.isShown=false;
+    }else{sol.isShown=true}
+     this.solicitudService.modificarSolicitud(sol._id,sol).subscribe((res) => {
+     console.log("Solicitud publicada exitosamente" + res)
+   },
+     (error) => {
+       console.log( "Error al publicar " + error)
+     })
+     return;
+ }
+ }
 
 
 
@@ -131,6 +156,12 @@ export class AdminComponent implements OnInit {
 
         var select = document.querySelectorAll('select');
         var instances = M.FormSelect.init(select, {});
+
+
+        var tab = document.querySelectorAll('.tabs');
+        var tabs = M.Tabs.init(tab,{},0);
+
+
 
     }, 100);
   }

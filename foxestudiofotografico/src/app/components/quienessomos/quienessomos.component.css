@@ -8,7 +8,6 @@
        text-align: center;
    }
    .titulo-final{
-       color: white;
        font-size: 30px;
    }
    .contenidof{
@@ -22,18 +21,18 @@
        padding: 10px;
        padding-top: 5px;
        border-radius: 20px;
-       border: 1px solid yellow;
+       border: 1px solid #41444B;
        margin-left: 30px;
    }
    h4{
-       color: white;
        font-size: 25px;
        padding: 0;
        margin: 0;
    }
    .opinion{
-       background-color:whitesmoke;
+       background-color:#52575D;       ;
        border-radius: 20px;
+       color: #F6F4E6;
        width: 100%;
        padding: 0;
        margin: 2px;
@@ -42,7 +41,6 @@
    }
       
    .comentario, .autor{
-       color: black;
        font-style: italic;
        margin: 0;
        padding: 8px;
@@ -59,9 +57,8 @@
    }
    .boton a{
        text-align: center;
-       color: black;
-       background-color: rgb(241, 241, 111);
        border-radius: 10px;
        padding: 15px;
+       color: #41444B;
        
    }

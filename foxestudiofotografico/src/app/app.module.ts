@@ -15,6 +15,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { ShowOpinionsComponent } from './components/show-opinions/show-opinions.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoginComponent } from './components/login/login.component';
     ChatComponent,
     QuienessomosComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    ShowOpinionsComponent
   ],
   imports: [
     BrowserModule,routing,FormsModule,HttpClientModule,ReactiveFormsModule
