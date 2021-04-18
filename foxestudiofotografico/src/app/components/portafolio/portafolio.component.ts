@@ -17,10 +17,10 @@ export class PortafolioComponent implements OnInit {
   }
 
   
-/*   ngAfterViewInit() {
+  ngAfterViewInit() {
     setTimeout(() => {
     const el = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(el, this.options);
   }, 100);
-  } */
+  }
 }
