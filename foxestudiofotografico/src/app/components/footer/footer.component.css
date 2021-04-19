@@ -3,7 +3,7 @@
      padding-top: 3px;
      
 }
-.container, copy{
+.container, .copy{
         color: #52575D !important;
 }
 .copy{
@@ -18,7 +18,7 @@ h5{
 }
 footer {
         position: fixed;
-        height: 85px;
+        height: 75px;
         bottom: 0px;
         left: 0px;
         right: 0px;
@@ -36,6 +36,7 @@ footer {
         justify-content: center;
         align-items: center;
         margin: 0px !important;
+        height: 35px
 }
 img{
         height: 20px;

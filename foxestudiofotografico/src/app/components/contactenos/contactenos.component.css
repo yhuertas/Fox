@@ -65,6 +65,11 @@ form{
     cursor: pointer;
     background-color: #41444B;
 }
+#boton:disabled{
+    background-color: lightgray;
+    color:gray;
+    cursor: not-allowed;
+}
 #tobon>.material-icons{
     color: #FDDB3A !important;
 }
