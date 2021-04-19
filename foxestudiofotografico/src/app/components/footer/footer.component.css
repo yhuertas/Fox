@@ -13,6 +13,9 @@
 hr{
         color: #41444B;
 }
+h5{
+        font-size: 15px;
+}
 footer {
         position: fixed;
         height: 85px;
@@ -22,16 +25,19 @@ footer {
         margin-bottom: 0px;
         z-index: 100;
     }
-    img{
-        height: 50px;
-        background-color: #52575D;
-    }
-    .row{
-            margin: 0px !important;
-    }
     footer ul li a{
         
                 color: #52575D;
                 background-color: transparent !important; 
             
     }
+.row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px !important;
+}
+img{
+        height: 20px;
+    }
+

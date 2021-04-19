@@ -49,4 +49,11 @@ export class SolicitudesServicesService {
     }
       return this._http.get(this.apiURL+"publish/", options).pipe((res)=>res)
     }
+
+      //consultar una solicitud
+      consultarUnaSolicitud(id):Observable<any>{
+        let options = { headers:new HttpHeaders().set('Content-type','application/json')
+      }
+        return this._http.get(this.apiURL+id,options).pipe((res)=>res)
+      }
 }

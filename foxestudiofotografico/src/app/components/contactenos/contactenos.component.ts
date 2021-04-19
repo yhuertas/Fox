@@ -50,7 +50,7 @@ export class ContactenosComponent implements OnInit {
       this.solicitud.isShown=false;
       this.solicitudService.registrarSolicitud(this.solicitud).subscribe(
         (res:any)=>{
-            alert(" Solicitud guardada exitosamente");
+            alert(" Solicitud enviada exitosamente");
             console.log(res)
             console.log(this.cita.fecha)
             if (this.showSchedule) {//Guardar solicitud con cita.
@@ -65,7 +65,7 @@ export class ContactenosComponent implements OnInit {
             console.log(this.cita)
               this.citasService.registrarCita(this.cita).subscribe(
                 (res2:any)=>{
-                alert("Cita guardada exitosamente");
+                alert("Cita enviada exitosamente");
                 console.log(res2)
 
               },
@@ -76,7 +76,8 @@ export class ContactenosComponent implements OnInit {
                 }
               }
             )
-            }  
+            } 
+           f.reset();
 
         },
         (error)=>{
@@ -87,7 +88,7 @@ export class ContactenosComponent implements OnInit {
         }
     )
   } else
-  {alert("aceta los terminos")}
+  {alert("Debe aceptar los terminos antes de enviar.")}
   }
 
 

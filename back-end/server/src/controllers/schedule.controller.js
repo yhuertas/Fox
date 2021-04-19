@@ -5,8 +5,11 @@ const Schedule = require('../models/Schedule');
     scheduleController.getAllSchedules= async(req, res) => {
         var today=new Date();
         const schedules = await Schedule.aggregate([ //filtrando las vigentes
-            {$match:{ "fecha":{$gt: today}, }},             
-                {"$project": {
+            {$match:{ "fecha":{$gt: today} }},
+            {"$project": {
+                "_id": {
+                    "$toString": "$_id"
+                  },
                       "_id": 1,
                       "tipo":1,
                       "fecha": {
@@ -21,8 +24,22 @@ const Schedule = require('../models/Schedule');
                            "date": "$hour"
                         }
                      },
-                     "requester":1
+                     "requester":1//, "solicitante.firstName":1
+                     //requester:"solicitante.firstName":1
                    }
+                },
+                //{ "$addFields": { "requester": { "$toString": "$_id" }}},
+                { $lookup:{
+                    "let": { "requesterObjId": { "$toObjectId": "$requester" } },
+                    from: "customers",
+                    //localField: "requester",
+                    //foreignField:"requester",
+                    //"let": { "requester": "$_id" },
+                    "pipeline": [
+                        { "$match": { "$expr": { "$eq": [ "$_id", "$$requesterObjId" ] } } }
+                      ],
+                    as: "solicitante"
+                  }
                 }
              ]).sort( { "fecha": 1 } )
         res.json(schedules)
@@ -49,6 +66,13 @@ const Schedule = require('../models/Schedule');
                      },
                      "requester":1
                    }
+                },
+                { $lookup:    {
+       from: "customer",
+       localField: "requester",
+       foreignField:"_id",
+       as: "firstName"
+     }
                 }
              ]).sort( { "fecha": 1 } )
         res.json(schedules)

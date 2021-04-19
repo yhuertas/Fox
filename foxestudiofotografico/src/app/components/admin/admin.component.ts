@@ -9,6 +9,7 @@ import { SolicitudModel } from '../../models/solicitud-model';
 import { NgForm } from '@angular/forms';
 import M from 'materialize-css';
 import * as moment from 'moment';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-admin',
@@ -107,9 +108,9 @@ export class AdminComponent implements OnInit {
   }
 
   ocultarCitas() {
-    this.listaCitas = null;
-    this.listaSolicitudes=null;
-    this.listaCitasAnteriores=null;
+    this.listaCitas = [];
+    this.listaSolicitudes=[];
+    this.listaCitasAnteriores=[];
   }
 
   consultarSolicitudes() {
@@ -125,7 +126,20 @@ export class AdminComponent implements OnInit {
         }
       })
   }
-
+eliminarSolicitud(id){
+  if (confirm("Estas seguro de eliminar esta solicitud ? ")) {
+    this.solicitudService.eliminarSolicitud(id).subscribe((res) => {
+      this.consultarSolicitudes()
+    },
+      (error) => {
+        var mensaje = error
+        if (mensaje !== null) {
+          console.log("Error al eliminar la solicitud. " + mensaje)
+        }
+      }
+    )
+  }  
+}
 
 
  publish(sol:SolicitudModel){{
@@ -143,7 +157,21 @@ export class AdminComponent implements OnInit {
  }
  }
 
-
+verSolicitante(idSolicitante){
+  console.log(idSolicitante)
+  this.solicitudService.consultarUnaSolicitud(idSolicitante).subscribe((res) => {
+    console.log(res)
+    console.log('Solicitud recuperada')
+    this.listaSolicitudes=[]
+    this.listaSolicitudes[0] = res;
+  },
+    (error) => {
+      var mensaje = error;
+      if (mensaje !== null) {
+        console.log("Error consultando la solicitud. " + mensaje)
+      }
+    })
+}
 
   ngAfterViewInit() {
 

@@ -28,7 +28,14 @@
                         <td class="text-center tamanofuente">{{cita.tipo}}</td>
                         <td class="text-center tamanofuente">{{cita.fecha}}</td>
                         <td class="text-center tamanofuente">{{cita.hour}}</td>
-                        <td class="text-center tamanofuente">{{cita.request}}</td>                    
+
+
+                        <td class="text-center tamanofuente">
+                            <div *ngFor="let solic of cita.solicitante" (click)="verSolicitante(solic._id)">
+                                <p >{{solic.firstName}} {{solic.lastName}}</p>
+                            </div>
+                        </td> 
+
                         <td lass="text-left"><a id="del" (click)="eliminarCita(cita._id)"><i
                                     class="material-icons">delete</i></a></td>
                     </tr>
@@ -61,7 +68,7 @@
                         <td class="text-center tamanofuente">{{cita.tipo}}</td>
                         <td class="text-center tamanofuente">{{cita.fecha}}</td>
                         <td class="text-center tamanofuente">{{cita.hour}}</td>
-                        <td class="text-center tamanofuente">{{cita.request}}</td>                    
+                        <td class="text-center tamanofuente">{{cita.firstName}}</td>                    
                         <td lass="text-left"><a id="del" (click)="eliminarCita(cita._id)"><i
                                     class="material-icons">delete</i></a></td>
                     </tr>
@@ -81,7 +88,7 @@
             <thead class="z-depth-1">
                 <tr>
                     <th class="text-center" scope="col">Nombre</th>
-                    <th class="text-center" scope="col">F. Nacimiento</th>
+                    <th class="text-center" scope="col">F.Nacimiento</th>
                     <th class="text-center" scope="col">Telefono</th>
                     <th class="text-center" scope="col">E-mail</th>
                     <th class="text-center" scope="col">Mensaje</th>
@@ -89,9 +96,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let sol of listaSolicitudes">
+                <tr *ngFor="let sol of listaSolicitudes" (dblclick)="eliminarSolicitud(sol._id)">
                     <td class="text-center tamanofuente">{{sol.firstName}}
-                        {{sol.lasttName}}</td>
+                        {{sol.lastName}}</td>
                     <td class="text-center tamanofuente">{{sol.birthDate}}</td>
                     <td class="text-center tamanofuente">{{sol.phone}}</td>
                     <td class="text-center tamanofuente">{{sol.email}}</td>

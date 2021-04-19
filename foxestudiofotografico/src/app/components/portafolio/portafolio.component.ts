@@ -6,9 +6,15 @@ import M from 'materialize-css';
   styleUrls: ['./portafolio.component.css']
 })
 export class PortafolioComponent implements OnInit {
-  options = { indicators: true,
-    fullWidth: false,dist:-200,shift:75,AutoPlay:true,duration:500,
+  options = { 
+    indicators: true,
+    fullWidth: false,
+    dist:-200,
+    shift:75,
+    AutoPlay:true,
+    duration:500,
     numVisible:3};
+    
   constructor() { 
    
   }
@@ -18,9 +24,19 @@ export class PortafolioComponent implements OnInit {
 
   
   ngAfterViewInit() {
+    
     setTimeout(() => {
     const el = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(el, this.options);
+    var car = M.Carousel.init(el, this.options);
+    var instances = M.Carousel.getInstance(el)
+
+    setInterval(()=>{
+      console.log(car);
+      if(!car.pressed){
+        car.next();
+      }
+    },2000)
+
   }, 100);
   }
 }

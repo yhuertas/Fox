@@ -35,7 +35,7 @@
         position:absolute;
     }
     .izquierda {
-        background-image: url("../../../assets/img/Pagina/06.jpg");
+        background-image: url("../../../assets/img/Pagina/Portada.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100%;
@@ -45,7 +45,7 @@
         z-index:2;
     }
     .derecha {
-        background-image: url("../../../assets/img/Pagina/06.jpg");
+        background-image: url("../../../assets/img/Pagina/Portada.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100%;
